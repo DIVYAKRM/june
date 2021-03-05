@@ -1,0 +1,20 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-alpine' 
+            args '-v /root/.m2:/root/.m2' 
+        }
+    }
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'mvn -B -DskipTests clean package' 
+            }
+        }
+        stage('Deploy') {
+			steps {
+			deploy adapters: [tomcat7(credentialsId: '0b10a3dd-d53d-450e-aa30-61f550c441ad', path: '', url: 'http://192.168.1.207:9090')], contextPath: '/HelloWorld', onFailure: false, war: '**/*.war'
+			}
+		}	
+    }
+}
