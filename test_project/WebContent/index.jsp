@@ -11,7 +11,7 @@
 <title>Hello World Java EE</title>
 </head>
 <body>
-	<h1>Hello JSP and Servlet Sample for CI/CD Updated in June!</h1>
+	<h1>Hello JSP and Servlet Sample for CI/CD Updated in June-22!</h1>
 	
 	<h1>Host Name of Server <%=hostname%></h1>
 </body>
